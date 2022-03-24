@@ -1,0 +1,30 @@
+DROP TABLE IF EXISTS user; 
+DROP TABLE IF EXISTS wishlist; 
+DROP TABLE IF EXISTS item; 
+
+CREATE TABLE user ( 
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    email TEXT UNIQUE NOT NULL, 
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP 
+); 
+
+CREATE TABLE wishlist ( 
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    author_id INTEGER NOT NULL, 
+    title TEXT NOT NULL, 
+    max_price NUMBER NOT NULL, 
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+    FOREIGN KEY (author_id) REFERENCES user (id) 
+); 
+
+CREATE TABLE item ( 
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    parent_wishlist INTEGER NOT NULL, 
+    parent_category INTEGER, 
+    is_category BOOLEAN NOT NULL, 
+    title TEXT NOT NULL, 
+    link TEXT, 
+    price NUMBER, 
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+    FOREIGN KEY (parent_wishlist) REFERENCES wishlist (id) 
+); 
