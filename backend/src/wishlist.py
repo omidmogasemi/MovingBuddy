@@ -30,11 +30,11 @@ def create_list():
 @bp.route('/create_item', methods=['POST']) 
 @login_required 
 def create_item(): 
-    try: 
-        parent_category = request.json['parent_category'] if 'parent_category' in request.json else None 
-        link = request.json['link'] if 'link' in request.json else None 
-        price = request.json['price'] if 'price' in request.json else None 
+    parent_category = request.json['parent_category'] if 'parent_category' in request.json else None 
+    link = request.json['link'] if 'link' in request.json else None 
+    price = request.json['price'] if 'price' in request.json else None 
 
+    try: 
         print(parent_category) 
         db = get_db()
         db.execute(
@@ -63,7 +63,7 @@ def get_items(parent_wishlist):
         abort(500, "Error retrieving from database.") 
     
     if items == []: 
-        abort(404, f"Item under parent wishlist {parent_wishlist} not found") 
+        abort(404, f"Parent wishlist id {parent_wishlist} not found") 
     
     return rows_to_dict(items) 
 
@@ -88,12 +88,16 @@ def get_item(id):
 @bp.route('/update_item/<id>', methods=['PUT']) 
 @login_required 
 def update_item(id): 
+    title = request.json['title'] if 'title' in request.json else None 
+    link = request.json['link'] if 'link' in request.json else None 
+    price = request.json['price'] if 'price' in request.json else None 
+
     try: 
         db = get_db() 
         db.execute( 
             'UPDATE item SET title = ?, link = ?, price = ?' 
             ' WHERE id = ?', 
-            (request.json['title'], request.json['link'], request.json['price'], id) 
+            (title, link, price, id) 
         ) 
         db.commit() 
     except SyntaxError: 
