@@ -49,9 +49,8 @@ export default function KeyFeature() {
       <Container>
         <SectionHeader
           slogan="slogan"
-          title="title">
-          
-        </SectionHeader>
+          title="title"
+        /> 
         <Grid sx={styles.grid}>
           {data.map((item) => ( 
             <FeatureCardColumn

@@ -13,7 +13,7 @@ export default function Banner() {
           <Heading as="h1" variant="heroPrimary">
             Top Quality Digital Products to Explore 
           </Heading>
-          <Text as="p" variant="heroSecondary">
+          <Text as="p" variant="heroThird">
             Check out our website to find great software products and deals!
           </Text>
           <Button variant="primary">Explore</Button>

@@ -9,6 +9,8 @@ export default {
     background_secondary: '#F9FBFD', // secondary background color
     border_color: '#E5ECF4', // border color
     yellow: '#FFA740', // border color
+    green: '#00FF00', 
+    red: '#FF0000', 
     primary: '#EA3A60', // primary button and link color
     secondary: '#2563FF', // secondary color - can be used for hover states
     muted: '#E4E4E4', // muted color
@@ -88,28 +90,10 @@ export default {
       pt: [8, null, 9, null, null, 10],
       pb: ['90px', null, 9, null, null, 10, null, '165px'],
     },
-    feature: {
-      pb: [8, null, 9, null, null, 10, null, '170px'],
-    },
-    news: {
-      pb: [8, null, 9, null, null, 10, null, '170px'],
-    },
-    coreFeature: {
-      pb: [8, null, 9, null, null, 10, null, '170px'],
-      overflow: 'hidden',
-    },
-    testimonial: {
-      pt: [8, null, 8, '70px', null, 8, null, '145px'],
-      pb: ['90px', null, 9, null, null, 10, null, '190px'],
-      overflow: 'hidden',
-    },
-    services: {
-      pb: ['90px', null, 9, null, null, 10, null, '150px'],
-    },
-    pricing: {
-      pt: [8, null, 9, null, null, 10, null, '180px'],
-      pb: ['90px', null, 9, null, null, 10, null, '180px'],
-    },
+    listContent: { 
+      pt: [10, null, null, null, null, 15],
+      pb: ['50px', null, null, null, null, '100px'],
+    }
   },
   sectionHeader: {
     width: ['100%', null, '540px'],
@@ -164,7 +148,20 @@ export default {
       fontWeight: 700,
       mb: [4, null, null, null, null, 5],
     },
-    heroSecondary: {
+    heroSecondary: { 
+      fontSize: ['16px',
+      '18px',
+      '19px',
+      '20px',
+      '21px',
+      '26px',
+      '29px',
+      '33px',],
+      lineHeight: 1.6,
+      fontWeight: 'body',
+      mb: 5,
+    },
+    heroThird: {
       fontSize: [2, null, '17px', null, null, '19px', 4],
       lineHeight: [1.9, null, null, 2],
       fontWeight: 'body',
@@ -238,6 +235,18 @@ export default {
       borderRadius: 99999,
     },
   },
+  // variants for spans 
+  spans: { 
+    primary: {
+      color: 'primary',
+    }, 
+    moneyCurrent: { 
+      color: 'green', 
+    }, 
+    moneyGoal: { 
+      color: 'red', 
+    }
+  }, 
   // variants for buttons
   buttons: {
     menu: {
