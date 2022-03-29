@@ -13,9 +13,9 @@ export default function ListItem() {
 
     return ( 
         <Container 
-            sx={styles.container} 
             onMouseEnter={mouseEnter} 
             onMouseLeave={mouseLeave}
+            sx={styles.container}
         >
             <Image src={copy} sx={styles.icon}/>
             <Text sx={styles.list_title}>Television</Text>
@@ -27,9 +27,6 @@ export default function ListItem() {
 } 
 
 const styles = { 
-    container: { 
-        width: '370px', 
-    }, 
     list_title: { 
         width: '175px', 
         position: 'relative',
@@ -41,5 +38,8 @@ const styles = {
         maxWidth: '32px', 
         minWidth: '32px', 
         pr: '10px !important',
-    } 
+    },     
+    container: { 
+        width: '370px', 
+    }, 
 } 

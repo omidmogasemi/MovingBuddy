@@ -1,5 +1,5 @@
 import ListItem from "components/list-item";
-import { Grid, Container } from 'theme-ui'; 
+import { Grid, Container, Text } from 'theme-ui'; 
 
 const data = [
     {}, {}, {} 
@@ -9,11 +9,14 @@ export default function ListContent() {
     return ( 
         <section sx={{variant: 'section.listContent'}} id="list-content">
             <Container> 
-                <Grid sx={styles.grid}>
-                    {data.map((item) => ( 
-                        <ListItem /> 
+                <Grid sx={styles.grid}> 
+                    {data.map((item, i) => ( 
+                        <Container sx={styles.container} key={i}>
+                            <Text as="h3" sx={{...styles.header_text, variant: "spans.primary"}}>Living Room</Text>
+                            <ListItem /> 
+                        </Container>
                     ))}
-                </Grid>
+                </Grid> 
             </Container> 
         </section>
     );
@@ -38,4 +41,10 @@ const styles = {
             'repeat(2,1fr)',
         ],
     },
+    header_text: { 
+        mb: 2,
+    }, 
+    container: { 
+        width: '370px', 
+    }, 
 };
