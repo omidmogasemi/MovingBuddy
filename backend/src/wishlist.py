@@ -11,7 +11,6 @@ from src.row_wrapper import row_to_dict, rows_to_dict
 bp = Blueprint('wishlist', __name__)
 
 @bp.route('/create_list', methods=['POST']) 
-@login_required 
 def create_list(): 
     try: 
         db = get_db()
@@ -28,7 +27,6 @@ def create_list():
     return "", 201 
 
 @bp.route('/create_item', methods=['POST']) 
-@login_required 
 def create_item(): 
     parent_category = request.json['parent_category'] if 'parent_category' in request.json else None 
     link = request.json['link'] if 'link' in request.json else None 
@@ -50,7 +48,6 @@ def create_item():
     return "", 201 
 
 @bp.route('/get_wishlist/<parent_wishlist>', methods=['GET']) 
-@login_required 
 def get_items(parent_wishlist): 
     items = [] 
 
@@ -68,7 +65,6 @@ def get_items(parent_wishlist):
     return rows_to_dict(items) 
 
 @bp.route('/get_item/<id>', methods=['GET']) 
-@login_required 
 def get_item(id): 
     item = None 
 
@@ -86,7 +82,6 @@ def get_item(id):
     return row_to_dict(item) 
 
 @bp.route('/update_item/<id>', methods=['PUT']) 
-@login_required 
 def update_item(id): 
     title = request.json['title'] if 'title' in request.json else None 
     link = request.json['link'] if 'link' in request.json else None 

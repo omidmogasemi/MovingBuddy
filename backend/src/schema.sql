@@ -10,7 +10,7 @@ CREATE TABLE user (
 
 CREATE TABLE wishlist ( 
     id INTEGER PRIMARY KEY AUTOINCREMENT, 
-    author_id INTEGER NOT NULL, 
+    author_id INTEGER, 
     title TEXT NOT NULL, 
     max_price NUMBER NOT NULL, 
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
